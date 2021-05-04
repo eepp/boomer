@@ -1,0 +1,133 @@
+// Render with Asciidoctor
+
+= boomer
+Philippe Proulx <https://eepp.ca/>
+:toc: left
+
+////
+[.normal]
+image:https://img.shields.io/pypi/v/qngng.svg?label=Latest%20version[link="https://pypi.python.org/pypi/qngng"]
+////
+
+[.lead]
+**__boomer__** Est un {nbsp}{nbsp}progr.am. qui transforme.s un textes
+écrit Franç.ais En, un.e For.mes que certein Boomers québ,céois
+{nbsp}auriaent pu écrir,e...
+
+V.ous Pouver a,ppelé là. fo.nction `boomer.boomer()` ou Utilisé
+{nbsp}CLI `boomer`,. (vo.ir `boomer help` {nbsp}pou,r, apprend.re
+comam.nt l utilis,er).
+
+
+== Exe,mples
+
+.Exécuiton .simple.
+====
+----
+$ boomer "J'en reviens pas des mesures du gouvernement\!"
+----
+
+----
+J en reviens Pa du mesure ,d.e gouvernemant!!!!! !!
+----
+====
+
+.moidfiées Las Prob,abilité dun algoritmhe sophistiquez
+====
+----
+$ boomer "Pour moi, les vélos ça va dans la piste cyclable." \
+         --config=josey=1:4
+----
+
+----
+Pour. m,oi, .les Vélos, .ç.a va d.en l,as Pice c.yclabe.. .,...,.,
+----
+====
+
+.Dé,satcivée un {nbsp}{nbsp}algorithme so,p,histiquer
+====
+----
+$ boomer "C'est rendu qu'on peut pu rien dire." --non=josey
+----
+
+----
+c est rendu que on peux pu rien Dire.. .
+----
+====
+
+.Modifiée {nbsp}{nbsp}le .numéarteur {nbsp}de Cnofigurations {nbsp}de tous les Algorithmes sophistiquez ..
+====
+----
+$ boomer "Dans mon temps y'en avait pas des niaiseries de même\!" \
+         --facteur=.5
+----
+
+----
+Dans mon tend y'en avait   pas des,  niaisreies   des même!
+----
+====
+
+.Réglée las graine ,des ,gé,nérateure .des Nombre Aléatoir,es
+====
+----
+$ boomer "C'est quoi après ils vont tu commencer à faire ça en public?" \
+         --graine=57
+----
+
+----
+Ces ,quoi apr.ès ils vo.nt tu commnecez a faire ,s,a en   public?? ?
+----
+====
+
+
+== A,glorith,mes sophistqiués
+
+Les a.l.gorithems Sophistiqu,ez son{nbsp}:
+
+[options="header"]
+|===
+|Nom, |desc.ritpion
+
+|`monique`
+|S occupe {nbsp}. ,Du {nbsp}{nbsp}qu.elques remplacemants p,opulaires s,impl,es, dont.
+plusieurs homo.phones..... .
+
+|`alain`
+|p.em.r,ute certe,in suffixe ... . .
+
+|`nicole`
+|Gère touts ce ,qui cn.ocernent la conju,ga.ison de.s ve.rbes .des premiez {nbsp}{nbsp}groupes . .,.
+
+|`serge`
+|Repmlace `qu'` Par +que{nbsp}+. .. . ..
+
+|`andré`
+|Fait comme.ncés ceretins {nbsp}{nbsp}mo,ts par une {nbsp}Majuscule.
+
+|`muriel`
+|fait commencées cet,rains mots par Une minuscule. ,. ..
+
+|`denis`
+|allonge Certaines Ponctuaitons . ....,
+
+|`guy`
+|Suppr.ime.nt De {nbsp}{nbsp}accents..
+
+|`chantal`
+|Re.mplace {nbsp}les. a,po.storphe et Les traits d un.ion par des Espace. o,ù Par rie,n..
+
+|`marc`
+|supp.rime.s des {nbsp}{nbsp}Petits Mot {nbsp}. .
+
+|`manon`
+|Permut.es deux Lett,ren,t d un Mot ,assée long. .
+
+|`sylvain`
+|muli.tplient, les espaces.. ...
+
+|`josey`
+|Ajoutent de .virgulent des points.
+
+|`yves`
+|remplaecs B,êtemant certanies chaines par {nbsp}d'autres qu,i sont, pohnétiquement équiva.lentes... .
+|===
