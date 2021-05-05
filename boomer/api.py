@@ -165,7 +165,7 @@ class _TextAlgo(_Algo):
 # plusieurs homophones.
 class _MoniqueAlgo(_TokenAlgo):
     _rep_sets = [
-        {"c'est", 'ces', 'ses', 'sais', 'sait'},
+        {"c'est", "s'est", 'ces', 'ses', 'sais', 'sait'},
         {'à', 'a'},
         {'ça', 'sa'},
         {'ce', 'se'},
@@ -177,6 +177,7 @@ class _MoniqueAlgo(_TokenAlgo):
         {'ton', "t'ont", 'thon'},
         {'leur', 'leurs', "l'heure"},
         {'mes', "m'es", "m'est", 'mets', 'met', 'mais', 'met'},
+        {'tes', "t'es", "t'est", 'taie', 'taies'},
         {'ni', "n'y"},
         {'où', "ou"},
         {'on', 'ont'},
@@ -201,6 +202,10 @@ class _MoniqueAlgo(_TokenAlgo):
         {'aux', 'à les'},
         {'tous', 'tout', 'touts'},
         {'toute', 'toutes'},
+        {'cet', 'cette', 'cettes', 'sept'},
+        {'sur', 'sûr', 'sûre'}
+        {'tel', 'telle', 'tels', 'telles'},
+        {'conter', 'compter'},
     ]
 
     def filter(self, t):
