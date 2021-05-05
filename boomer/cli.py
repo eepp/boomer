@@ -73,7 +73,7 @@ def _run(args):
 
     if args.input is None:
         # Entrée standard
-        for line in fileinput.input():
+        for line in fileinput.input(files=('-')):
             line = line.strip('\n')
             print(boomer.boomer(line, algo_cfgs, seed))
     else:
