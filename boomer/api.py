@@ -304,13 +304,26 @@ class _NicoleAlgo(_TokenAlgo):
         t.replace_suffix(suffix, len(orig_suffix))
 
 
-# Serge remplace `qu'` par `que `.
+# Serge remplace des formes contractées par leur forme longue.
 class _SergeAlgo(_TokenAlgo):
+    _reps = {
+        "qu'": 'que ',
+        "d'": 'de ',
+        "l'": 'la ',
+    }
+
+    @staticmethod
+    def _find_prefix(t):
+        for prefix, rep in _SergeAlgo._reps.items():
+            if t.lower.startswith(prefix):
+                return prefix, rep
+
     def filter(self, t):
-        return t.lower.startswith("qu'")
+        return self._find_prefix(t) is not None
 
     def trans(self, t):
-        t.replace_prefix('que ', 3)
+        prefix, rep = self._find_prefix(t)
+        t.replace_prefix(rep, len(prefix))
 
 
 # André fait commencer certains mots par une majuscule.
