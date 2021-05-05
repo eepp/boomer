@@ -20,6 +20,7 @@
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import argparse
+import fileinput
 import boomer.api
 import boomer
 import sys
@@ -28,7 +29,7 @@ import re
 
 def _parse_args():
     parser = argparse.ArgumentParser(description=boomer.__description__)
-    parser.add_argument('--config', '-c', action='append', nargs=1,
+    parser.add_argument('--config', '-c', action='append',
                         help='Configure un algorithme sophistiqué')
     parser.add_argument('--non', '-n', action='append', nargs=1,
                         help='Désactive un algorithme sophistiqué')
@@ -39,7 +40,7 @@ def _parse_args():
     parser.add_argument('--version', '-V', action='version',
                         version=f'boomer {boomer.__version__}',
                         help='Affiche la version et quitte')
-    parser.add_argument('input', metavar='INPUT', nargs=1, help='Entrée')
+    parser.add_argument('input', metavar='INPUT', nargs='?', help='Entrée')
     return parser.parse_args()
 
 
@@ -70,7 +71,13 @@ def _run(args):
     if args.graine is not None:
         seed = args.graine[0]
 
-    print(boomer.boomer(args.input[0], algo_cfgs, seed))
+    if args.input is None:
+        # Entrée standard
+        for line in fileinput.input():
+            line = line.strip('\n')
+            print(boomer.boomer(line, algo_cfgs, seed))
+    else:
+        print(boomer.boomer(args.input[0], algo_cfgs, seed))
 
 
 def _main():
