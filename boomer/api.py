@@ -163,7 +163,7 @@ class _TextAlgo(_Algo):
 
 # Monique s'occupe de quelques remplacements populaires simples, dont
 # plusieurs homophones.
-class MoniqueAlgo(_TokenAlgo):
+class _MoniqueAlgo(_TokenAlgo):
     _rep_sets = [
         {"c'est", 'ces', 'ses', 'sais', 'sait'},
         {'à', 'a'},
@@ -587,7 +587,7 @@ def boomer(input, algo_cfgs=None, seed=None):
 
     # Construire les algorithmes sophistiqués
     algo_clss = [
-        ('monique', MoniqueAlgo),
+        ('monique', _MoniqueAlgo),
         ('alain', _AlainAlgo),
         ('nicole', _NicoleAlgo),
         ('serge', _SergeAlgo),
