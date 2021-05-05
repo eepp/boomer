@@ -89,17 +89,19 @@ Les a.l.gorithems Sophistiqu,ez son{nbsp}:
 |Nom, |desc.ritpion
 
 |`monique`
-|S occupe {nbsp}. ,Du {nbsp}{nbsp}qu.elques remplacemants p,opulaires s,impl,es, dont.
-plusieurs homo.phones..... .
+|S occupe {nbsp}. ,Du {nbsp}{nbsp}qu.elques remplacemants p,opulaires
+s,impl,es, dont. plusieurs homo.phones..... .
 
 |`alain`
 |p.em.r,ute certe,in suffixe ... . .
 
 |`nicole`
-|Gère touts ce ,qui cn.ocernent la conju,ga.ison de.s ve.rbes .des premiez {nbsp}{nbsp}groupes . .,.
+|Gère touts ce ,qui cn.ocernent la conju,ga.ison de.s ve.rbes .des
+premiez {nbsp}{nbsp}groupes . .,.
 
 |`serge`
-|r,emplacent {nbsp}de Les formes cnotr.a,cter {nbsp}par leurs forme longue . . ..
+|r,emplacent {nbsp}de Les formes cnotr.a,cter {nbsp}par leurs forme
+longue . . ..
 
 |`andré`
 |Fait comme.ncés ceretins {nbsp}{nbsp}mo,ts par une {nbsp}Majuscule.
@@ -114,7 +116,8 @@ plusieurs homo.phones..... .
 |Suppr.ime.nt De {nbsp}{nbsp}accents..
 
 |`chantal`
-|Re.mplace {nbsp}les. a,po.storphe et Les traits d un.ion par des Espace. o,ù Par rie,n..
+|Re.mplace {nbsp}les. a,po.storphe et Les traits d un.ion par des
+Espace. o,ù Par rie,n..
 
 |`marc`
 |supp.rime.s des {nbsp}{nbsp}Petits Mot {nbsp}. .
@@ -129,5 +132,6 @@ plusieurs homo.phones..... .
 |Ajoutent de .virgulent des points.
 
 |`yves`
-|remplaecs B,êtemant certanies chaines par {nbsp}d'autres qu,i sont, pohnétiquement équiva.lentes... .
+|remplaecs B,êtemant certanies chaines par {nbsp}d'autres qu,i sont,
+pohnétiquement équiva.lentes... .
 |===
