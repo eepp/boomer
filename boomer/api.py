@@ -568,17 +568,8 @@ def _retokenize_and_process(tokens, algo):
     algo.process_tokens(tokens)
 
 
-def boomer(input, algo_cfgs=None, seed=None):
-    # Grainer le générateur de nombres aléatoires
-    if seed is not None:
-        rand_state = random.getstate()
-        random.seed(seed)
-
-    # Diviser en jetons initialement
-    tokens = _tokenize(input)
-
-    # Configurer
-    effective_algo_cfgs = {
+def _default_algo_cfgs():
+    return {
         'monique': [3, 2],
         'alain': [2, 1],
         'nicole': [3, 1],
@@ -594,6 +585,19 @@ def boomer(input, algo_cfgs=None, seed=None):
         'josey': [1, 15],
         'yves': [1, 3],
     }
+
+
+def boomer(input, algo_cfgs=None, seed=None):
+    # Grainer le générateur de nombres aléatoires
+    if seed is not None:
+        rand_state = random.getstate()
+        random.seed(seed)
+
+    # Diviser en jetons initialement
+    tokens = _tokenize(input)
+
+    # Configurer
+    effective_algo_cfgs = _default_algo_cfgs()
 
     if algo_cfgs is not None:
         effective_algo_cfgs.update(algo_cfgs)

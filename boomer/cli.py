@@ -20,6 +20,7 @@
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import argparse
+import boomer.api
 import boomer
 import sys
 import re
@@ -44,22 +45,7 @@ def _parse_args():
 
 def _run(args):
     # Convertir les arguments en configurations
-    algo_cfgs = {
-        'monique': [3, 2],
-        'alain': [2, 1],
-        'nicole': [3, 1],
-        'serge': [2, 1],
-        'andré': [1, 3],
-        'muriel': [1, 2],
-        'denis': [2, 1],
-        'guy': [1, 1],
-        'chantal': [2, 1],
-        'marc': [1, 5],
-        'manon': [1, 3],
-        'sylvain': [1, 7],
-        'josey': [1, 15],
-        'yves': [1, 3],
-    }
+    algo_cfgs = boomer.api._default_algo_cfgs()
 
     if args.config is not None:
         for arg in args.config:
