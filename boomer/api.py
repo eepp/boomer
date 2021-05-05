@@ -195,7 +195,10 @@ class MoniqueAlgo(_TokenAlgo):
         {'luance', 'nuance'},
         {'faire', 'fer'},
         {'pas', 'pa'},
-        {'de', 'du', 'des'},
+        {'du', 'de le'},
+        {'des', 'de les'},
+        {'au', 'à le'},
+        {'aux', 'à les'},
         {'tous', 'tout', 'touts'},
         {'toute', 'toutes'},
     ]
