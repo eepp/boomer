@@ -203,7 +203,7 @@ class _MoniqueAlgo(_TokenAlgo):
         {'tous', 'tout', 'touts'},
         {'toute', 'toutes'},
         {'cet', 'cette', 'cettes', 'sept'},
-        {'sur', 'sûr', 'sûre'}
+        {'sur', 'sûr', 'sûre'},
         {'tel', 'telle', 'tels', 'telles'},
         {'conter', 'compter'},
     ]
