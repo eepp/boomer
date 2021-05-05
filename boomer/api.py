@@ -239,7 +239,8 @@ class _AlainAlgo(_TokenAlgo):
         {'ible', 'ibles'},
         {'let', 'lait', 'laits', 'lais', 'laid', 'laids'},
         {'iste', 'istes', 'isse', 'isses'},
-        {'able', 'abe', 'ables', 'abes'}
+        {'able', 'abe', 'ables', 'abes'},
+        {'eil', 'eils', 'eille', 'eilles'},
     ]
 
     @staticmethod
