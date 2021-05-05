@@ -514,6 +514,9 @@ class _YvesAlgo(_TextAlgo):
         'tt': 't',
         'ss': 'c',
         'rr': 'r',
+        'sse': 'ce',
+        'ssa': 'ça',
+        'ssi': 'ci',
     }
 
     def process_text(self, text):
