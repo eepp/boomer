@@ -50,10 +50,10 @@ def _run(args):
 
     if args.config is not None:
         for arg in args.config:
-            m = re.match(r'^([a-z]+)\s*=\s*(\d+)\s*:\s*(\d+)$', arg[0].strip())
+            m = re.match(r'^([a-z]+)\s*=\s*(\d+)\s*:\s*(\d+)$', arg.strip())
 
             if not m:
-                raise RuntimeError(f'Erreur: Format incompatible: {arg[0]}')
+                raise RuntimeError(f'Erreur: Format incompatible: {arg}')
 
             algo_cfgs[m.group(1)] = [int(m.group(2)), int(m.group(3))]
 
@@ -77,7 +77,7 @@ def _run(args):
             line = line.strip('\n')
             print(boomer.boomer(line, algo_cfgs, seed))
     else:
-        print(boomer.boomer(args.input[0], algo_cfgs, seed))
+        print(boomer.boomer(args.input, algo_cfgs, seed))
 
 
 def _main():
