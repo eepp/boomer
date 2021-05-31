@@ -161,9 +161,9 @@ class _TextAlgo(_Algo):
         raise NotImplementedError
 
 
-# Monique s'occupe de quelques remplacements populaires simples, dont
-# plusieurs homophones.
 class _MoniqueAlgo(_TokenAlgo):
+    """Monique s'occupe de quelques remplacements populaires simples, dont
+    plusieurs homophones."""
     _rep_sets = [
         {"c'est", "s'est", 'ces', 'ses', 'sais', 'sait'},
         {'à', 'a'},
@@ -217,8 +217,8 @@ class _MoniqueAlgo(_TokenAlgo):
                 t.replace_keep_form(self._choose_other_in_set(t.lower, reps))
 
 
-# Alain permute certains suffixes.
 class _AlainAlgo(_TokenAlgo):
+    """Alain permute certains suffixes."""
     _suffix_sets = [
         {'er', 'ez', 'é', 'és', 'ée', 'ées'},
         {'tail', 'taille', 'tails', 'tailles'},
@@ -267,13 +267,13 @@ class _AlainAlgo(_TokenAlgo):
         t.replace_suffix(suffix, rem_len)
 
 
-# Nicole gère tout ce qui concerne la conjugaison des verbes du premier
-# groupe.
-#
-# Nicole identifie d'abord si un jeton est un verbe du premier groupe
-# conjugué. Si c'est le cas, elle modifie sa conjugaison pour une forme
-# homophonique.
 class _NicoleAlgo(_TokenAlgo):
+    """ Nicole gère tout ce qui concerne la conjugaison des verbes du premier
+    groupe.
+
+    Nicole identifie d'abord si un jeton est un verbe du premier groupe
+    conjugué. Si c'est le cas, elle modifie sa conjugaison pour une forme
+    homophonique."""
     @staticmethod
     def _find_suffix(t):
         m = re.match(r'(.+?)(eais|eait|eaient|ais|ait|aient|e|es|ent)$',
@@ -312,8 +312,8 @@ class _NicoleAlgo(_TokenAlgo):
         t.replace_suffix(suffix, len(orig_suffix))
 
 
-# Serge remplace des formes contractées par leur forme longue.
 class _SergeAlgo(_TokenAlgo):
+    """Serge remplace des formes contractées par leur forme longue."""
     _reps = {
         "qu'": 'que ',
         "d'": 'de ',
@@ -334,8 +334,9 @@ class _SergeAlgo(_TokenAlgo):
         t.replace_prefix(rep, len(prefix))
 
 
-# André fait commencer certains mots par une majuscule.
 class _AndréAlgo(_TokenAlgo):
+    """André fait commencer certains mots par une majuscule."""
+
     def filter(self, t):
         return len(t) >= 2 and t.starts_with_lower
 
@@ -343,8 +344,9 @@ class _AndréAlgo(_TokenAlgo):
         t.text = f'{t[0].upper()}{t[1:]}'
 
 
-# Muriel fait commencer certains mots par une minuscule.
 class _MurielAlgo(_TokenAlgo):
+    """Muriel fait commencer certains mots par une minuscule."""
+
     def filter(self, t):
         return len(t) >= 2 and t.starts_with_upper
 
@@ -352,8 +354,9 @@ class _MurielAlgo(_TokenAlgo):
         t.text = f'{t[0].lower()}{t[1:]}'
 
 
-# Denis allonge certaines ponctuations.
 class _DenisAlgo(_TokenAlgo):
+    """Denis allonge certaines ponctuations."""
+
     def filter(self, t):
         return t.text in ('.', ',', '!', '?')
 
@@ -369,8 +372,9 @@ class _DenisAlgo(_TokenAlgo):
         t.text = ''.join(output)
 
 
-# Guy supprime des accents.
 class _GuyAlgo(_TokenAlgo):
+    """Guy supprime des accents."""
+
     _accents = {
         'à': 'a',
         'â': 'a',
@@ -411,9 +415,10 @@ class _GuyAlgo(_TokenAlgo):
         self._apply_with_prob(tokens, [1, 0])
 
 
-# Chantal remplace les apostrophes et les traits d'union par des espaces
-# ou par rien.
 class _ChantalAlgo(_TokenAlgo):
+    """Chantal remplace les apostrophes et les traits d'union par des espaces
+    ou par rien."""
+
     def filter(self, t):
         return "'" in t or '-' in t
 
@@ -422,8 +427,9 @@ class _ChantalAlgo(_TokenAlgo):
         t.text = t.text.replace("-", random.choice([' ', '']))
 
 
-# Marc supprime des petits mots.
 class _MarcAlgo(_TokenAlgo):
+    """Marc supprime des petits mots."""
+
     _words = {
         'au',
         'ça',
@@ -464,8 +470,9 @@ class _MarcAlgo(_TokenAlgo):
         t.has_trailing_space = False
 
 
-# Manon permute deux lettres d'un mot assez long.
 class _ManonAlgo(_TokenAlgo):
+    """Manon permute deux lettres d'un mot assez long."""
+
     def filter(self, t):
         return len(t) >= 7
 
@@ -476,8 +483,9 @@ class _ManonAlgo(_TokenAlgo):
         t.text = f'{t.text[:first_index]}{second_c}{first_c}{t.text[first_index + 2:]}'
 
 
-# Sylvain multiplie les espaces.
 class _SylvainAlgo(_TextAlgo):
+    """Sylvain multiplie les espaces."""
+
     def process_text(self, text):
         output = []
 
@@ -492,8 +500,9 @@ class _SylvainAlgo(_TextAlgo):
         return ''.join(output)
 
 
-# Josey ajoute des virgules ou des points.
 class _JoseyAlgo(_TextAlgo):
+    """Josey ajoute des virgules ou des points."""
+
     def process_text(self, text):
         output = []
 
@@ -506,9 +515,10 @@ class _JoseyAlgo(_TextAlgo):
         return ''.join(output)
 
 
-# Yves remplace bêtement certaines chaines par d'autres qui sont
-# phonétiquement équivalentes.
 class _YvesAlgo(_TextAlgo):
+    """Yves remplace bêtement certaines chaines par d'autres qui sont
+    phonétiquement équivalentes."""
+
     _reps = {
         'ç': 'ss',
         'nn': 'n',
@@ -580,6 +590,24 @@ def _retokenize_and_process(tokens, algo):
     algo.process_tokens(tokens)
 
 
+_algo_clss = {
+    ('monique', _MoniqueAlgo),
+    ('alain', _AlainAlgo),
+    ('nicole', _NicoleAlgo),
+    ('serge', _SergeAlgo),
+    ('andré', _AndréAlgo),
+    ('muriel', _MurielAlgo),
+    ('denis', _DenisAlgo),
+    ('guy', _GuyAlgo),
+    ('chantal', _ChantalAlgo),
+    ('marc', _MarcAlgo),
+    ('manon', _ManonAlgo),
+    ('sylvain', _SylvainAlgo),
+    ('josey', _JoseyAlgo),
+    ('yves', _YvesAlgo),
+}
+
+
 def _default_algo_cfgs():
     return {
         'monique': [3, 2],
@@ -599,6 +627,38 @@ def _default_algo_cfgs():
     }
 
 
+class _AlgoInfo:
+    def __init__(self, name, desc, default_cfg):
+        self._name = name
+        self._desc = desc
+        self._default_cfg = default_cfg
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def description(self):
+        return self._desc
+
+    @property
+    def default_configuration(self):
+        return self._default_cfg
+
+
+def algorithm_infos():
+    algo_infos = []
+
+    default_cfgs = _default_algo_cfgs()
+
+    for name, cls in _algo_clss:
+        default_cfg = default_cfgs[name]
+        desc = cls.__doc__
+        algo_infos.append(_AlgoInfo(name, desc, default_cfg))
+
+    return algo_infos
+
+
 def boomer(input, algo_cfgs=None, seed=None):
     # Grainer le générateur de nombres aléatoires
     if seed is not None:
@@ -615,25 +675,9 @@ def boomer(input, algo_cfgs=None, seed=None):
         effective_algo_cfgs.update(algo_cfgs)
 
     # Construire les algorithmes sophistiqués
-    algo_clss = [
-        ('monique', _MoniqueAlgo),
-        ('alain', _AlainAlgo),
-        ('nicole', _NicoleAlgo),
-        ('serge', _SergeAlgo),
-        ('andré', _AndréAlgo),
-        ('muriel', _MurielAlgo),
-        ('denis', _DenisAlgo),
-        ('guy', _GuyAlgo),
-        ('chantal', _ChantalAlgo),
-        ('marc', _MarcAlgo),
-        ('manon', _ManonAlgo),
-        ('sylvain', _SylvainAlgo),
-        ('josey', _JoseyAlgo),
-        ('yves', _YvesAlgo),
-    ]
     algos = []
 
-    for algo_name, algo_cls in algo_clss:
+    for algo_name, algo_cls in _algo_clss:
         algo_cfg = effective_algo_cfgs[algo_name]
 
         if algo_cfg is None:
